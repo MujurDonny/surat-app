@@ -13,7 +13,8 @@ use App\Http\Controllers\Data\Datamasuk\DataMasukController;
 use App\Http\Controllers\Data\Datakeluar\DataKeluarController;
 use App\Http\Controllers\PetugasController;
 
-Route::get('/data-petugas', [PetugasController::class, 'index'])->middleware('auth')->name('data-petugas');
+Route::get('/petugas', [PetugasController::class, 'index'])->name('petugas.index');
+Route::middleware(['auth'])->get('/data-petugas', [PetugasController::class, 'index'])->name('data-petugas.index');
 Route::get('/data-keluar', [DataKeluarController::class, 'index'])->name('data-surat-keluar.index');
 Route::get('/data-surat-masuk', [DataMasukController::class, 'index'])->name('data-surat-masuk.index');
 Route::get('/home', function () {
